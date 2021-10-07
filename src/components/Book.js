@@ -1,8 +1,17 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
-import {styles} from "../styles"
+import UpdateProgressModal from "./UpdateProgressModal";
+
+
 
 export default function Book({book,index,removeBook}){
-    console.log("jaz em book : "+ book.bookName)
+
+    const [progress,updateProgress] = useState(false)
+
+    const handleShow = () => updateProgress(true)
+    function handleClose(){updateProgress(false);
+    console.log("zaprl si!")}
+
 return(
     <div className="bookWrapper" >
     <div style={{width:"50%"}}>
@@ -19,7 +28,10 @@ return(
            <div id="chapterWrapper">
            <h4 style={{color:"grey",fontWeight:"bold" }}>Current chapter</h4>
            <p>{book.currentChapter}</p>
-           <button>Update progress</button>
+           <button onClick={handleShow}>Update progress</button>
+           <UpdateProgressModal 
+           show={progress} 
+           handleClose={handleClose}></UpdateProgressModal>
             </div>
            <span className="removeBtn" onClick={() => removeBook(index)}>X</span></div> 
     </div>
