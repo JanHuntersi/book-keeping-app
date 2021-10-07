@@ -1,0 +1,66 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+  background-color: #dfdddd;
+}
+
+.bookWrapper{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  padding: 10px;
+  margin-left:5%;
+  margin-top: 35px;
+  justify-content: space-between;
+  background-color: white;
+
+}
+
+.removeBtn{
+  text-align: left;
+  display: inline-block;
+  background-color: lightcoral;
+  border: none;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  height: 30px;
+}
+.removeBtn:hover{
+  cursor: pointer;
+}
+
+.bookDetailsWrapper{
+  width: 90%;
+  padding: 10px;
+  margin-left:5%;
+  margin-top: 35px;
+  background-color: white;
+}
+.bookDetailsWrapper>*{
+margin: 6px;
+}
+.bookDetailsHeading{
+ font-weight: 700;
+}
+.chapterAndButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+#chapterWrapper{
+  width: 30%;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  
+  justify-content: center;
+  text-align: left;
+}
