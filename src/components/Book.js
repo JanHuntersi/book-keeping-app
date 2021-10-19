@@ -13,7 +13,7 @@ export default function Book({book,index,removeBook,updateBooks}){
     console.log("zaprl si!")}
 
     //Update chapter
-    const [state,updateState]= useState(null)
+    const [state,updateState]= useState("")
 
     function handleInputChange(e){
         console.log("handleInputChange")
@@ -24,10 +24,19 @@ export default function Book({book,index,removeBook,updateBooks}){
         });
     }
     function handleSubmit(e){
+        openModal(false);
         console.log("handleSubmit")
         e.preventDefault();
-        book.currentChapter=state.currentChapter
-        updateBooks();
+        
+        if(state.currentChapter!=''){
+
+            book.currentChapter=state.currentChapter
+            updateBooks();
+        }
+        else{
+        alert('Enter chapter')
+        console.log("narobe");
+    }
     }
 
 return(
