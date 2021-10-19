@@ -4,13 +4,31 @@ import UpdateProgressModal from "./UpdateProgressModal";
 
 
 
-export default function Book({book,index,removeBook}){
+export default function Book({book,index,removeBook,updateBooks}){
 
-    const [progress,updateProgress] = useState(false)
+    const [modal,openModal] = useState(false)
 
-    const handleShow = () => updateProgress(true)
-    function handleClose(){updateProgress(false);
+    const handleShow = () => openModal(true)
+    function handleClose(){openModal(false);
     console.log("zaprl si!")}
+
+    //Update chapter
+    const [state,updateState]= useState(null)
+
+    function handleInputChange(e){
+        console.log("handleInputChange")
+        const  {name,value} = e.target
+        updateState({
+            ...state,
+            [name]:value,
+        });
+    }
+    function handleSubmit(e){
+        console.log("handleSubmit")
+        e.preventDefault();
+        book.currentChapter=state.currentChapter
+        updateBooks();
+    }
 
 return(
     <div className="bookWrapper" >
@@ -20,6 +38,9 @@ return(
     <h4 style={{color:"#70e1e1"}}>{book.bookAuthor}</h4>
     <Link to={`/books/${book.id}`}>
     <p>Details</p>
+    <p>
+    
+    </p>
     </Link>
     
     </div>
@@ -30,8 +51,11 @@ return(
            <p>{book.currentChapter}</p>
            <button onClick={handleShow}>Update progress</button>
            <UpdateProgressModal 
-           show={progress} 
-           handleClose={handleClose}></UpdateProgressModal>
+           show={modal} 
+           handleClose={handleClose}
+           handleInputChange={handleInputChange}
+           handleSubmit={handleSubmit}
+           ></UpdateProgressModal>
             </div>
            <span className="removeBtn" onClick={() => removeBook(index)}>X</span></div> 
     </div>

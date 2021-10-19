@@ -45,6 +45,10 @@ const addBook = book =>{
   alert("New Book added!")
 }
 
+function updateBooks(){
+  console.log("Update")
+setBooks(books)
+}
 
 
   return (
@@ -63,7 +67,9 @@ const addBook = book =>{
                 <Book 
                 book={book.book}
                 index={index}
-                removeBook={removeBook}></Book> 
+                removeBook={removeBook}
+                updateBooks={updateBooks}>  
+                </Book> 
             ))}
           </Route>
           <Route exact path="/showbooks">
