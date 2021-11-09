@@ -32,7 +32,7 @@ export default function Input({addBook,books}){
         newBook.comment = state.comment
         newBook.currentChapter = state.currentChapter
         
-        if(books.length==0){newBook.id=1}
+        if(books.length===0){newBook.id=1}
        
         else{
         let lastBook=books[books.length-1].book  
@@ -40,7 +40,7 @@ export default function Input({addBook,books}){
         }
        // console.log(newBook.bookName+", id: "+ newBook.id)
 
-        if(newBook.bookName && newBook.bookAuthor != "" && newBook.category!="Category" && newBook.category!=""){
+        if(newBook.bookName && newBook.bookAuthor !== "" && newBook.category!=="Category" && newBook.category!==""){
         addBook(newBook);
     }else{
         alert('Please fill out all options correctly')

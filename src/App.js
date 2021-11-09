@@ -9,7 +9,7 @@ import React from "react"
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
-import {styles} from "../src/styles"
+
 
 
 function App() {
@@ -48,9 +48,7 @@ const addBook = book =>{
 function updateBooks(){
 
   console.log("Update j bil klican")
-  books.map((book,index)=>{
-    console.log(book)
-})
+ 
 localStorage.setItem("books",JSON.stringify(books)); //locastorage updated
 }
 
