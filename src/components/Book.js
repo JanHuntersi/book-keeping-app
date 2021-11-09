@@ -34,7 +34,7 @@ export default function Book({book,index,removeBook,updateBooks}){
             updateBooks();
         }
         else{
-        alert('Enter chapter')
+        alert('Enter chapter:')
         console.log("narobe");
     }
     }
